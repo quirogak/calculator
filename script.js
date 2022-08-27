@@ -35,3 +35,28 @@ const divide = function(x,y){
   return result;
  }
 }
+
+const operate = function(operator,x,y) {
+
+if (operator == "+"){
+   
+  return add(x,y)
+}
+
+else if (operator == "-"){
+
+  return subtract(x,y)
+}
+else if (operator == "*"){
+  
+  return multiply(x,y)
+}
+else if (operator == "/"){
+  
+  return divide(x,y)
+}
+
+
+
+}
+console.log(operate("*",3,2))
