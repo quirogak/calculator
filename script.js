@@ -1,3 +1,5 @@
+const numericButtonContainer = document.querySelector("#numeric-button-container")
+
 const add = function(x,y){
 
   const result =  x + y;
@@ -36,7 +38,7 @@ const divide = function(x,y){
  }
 }
 
-const operate = function(operator,x,y) {
+const operate = function(x,operator,y) {
 
 if (operator == "+"){
    
@@ -57,6 +59,34 @@ else if (operator == "/"){
 }
 
 
-
 }
-console.log(operate("*",3,2))
+
+
+
+const removeButton = document.createElement("button");
+numericButtonContainer.appendChild(removeButton);
+removeButton.setAttribute('id','remove-button')
+removeButton.textContent = "X";
+
+const basicButtons = function(){
+
+
+  for(let i = 0 ;i <= 9 ; i++){
+
+    const basicButtons = document.createElement("button");
+    numericButtonContainer.insertBefore(basicButtons,decimalButton);
+    basicButtons.setAttribute('id','basic-buttons' + i)
+    basicButtons.setAttribute('style', 'background-color:rgb(109, 109, 109);')
+    basicButtons.textContent = i;
+
+  }
+}
+
+const decimalButton = document.createElement("button");
+numericButtonContainer.appendChild(decimalButton);
+decimalButton.setAttribute('id','decimal-button')
+decimalButton.textContent = ",";
+
+
+console.log(basicButtons())
+console.log(operate(2,"+",2))
