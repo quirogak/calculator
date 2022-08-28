@@ -25,6 +25,36 @@ width: 390px;
 height: 200px;
 background-color: rgb(68, 67, 67);
 border-radius: 6px;
+display: flex;
+flex-direction: column;
+}
+
+#result-display {
+    width: 389px;
+    height: 130px;
+}
+
+#input-display {
+    width: 390px;
+    height: 70px;
+    border-top: 1px solid black;
+    background-color: rgb(63, 63, 63);
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    
+}
+
+#display-input-content {
+    
+    font-weight: 20;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    color: rgb(245, 245, 245);
+    background-color:rgb(85, 84, 84) ;
+    border-radius: 6px;
+    margin: 5px;
+    width: 370px;
+   
 }
 
 #button-container {
@@ -53,17 +83,35 @@ button {
     width:80px; height:80px; 
     margin:3px;
     border: 1px solid black;
+    font-size: 15px;
+}
+
+button :hover {
+    background-color: aqua;
 }
 
 #remove-button {
-    background-color: rgb(226, 66, 45);
+    background-color: rgb(224, 77, 57);
 
 }
+
+#remove-button:hover {
+    background-color: rgb(223, 61, 61);
+}
+
 
 #decimal-button {
     background-color: rgb(109, 109, 109);
     
 }
+
+#decimal-button:hover {
+    background-color: rgb(126, 125, 125);
+}
+
+button:active {
+    transform: translateY(2px);
+  }
 
 #action-buttons {
     display:flex;
