@@ -1,6 +1,7 @@
 const numericButtonContainer = document.querySelector("#numeric-button-container")
 const displayInput = document.querySelector("#input-display")
 
+
 const add = function(x,y){
 
   const result =  x + y;
@@ -35,7 +36,7 @@ const divide = function(x,y){
 
   const result = x / y;
 
-  return result;
+  return result.toFixed(2);
  }
 }
 
@@ -64,16 +65,9 @@ else if (operator == "/"){
 
 
 
-const removeButton = document.createElement("button");
-numericButtonContainer.appendChild(removeButton);
-removeButton.setAttribute('id','remove-button')
-removeButton.textContent = "X";
-removeButton.addEventListener("click", () => {
-
- return displayInputContent.value = [""]
-})
 
 
+//buttons section
 
 
 const basicButtons = function(){
@@ -89,7 +83,8 @@ const basicButtons = function(){
     basicButtons.addEventListener("click", () => {
 
      
-     return displayInputContent.value += [i];
+     return displayInputContent.value += [i]
+     
     })
 
     //hover style 
@@ -106,6 +101,28 @@ const basicButtons = function(){
   }
 }
 
+const removeButton = document.createElement("button");
+numericButtonContainer.appendChild(removeButton);
+removeButton.setAttribute('id','remove-button')
+removeButton.textContent = "⌫";
+removeButton.addEventListener("click", () => {
+      
+ return displayInputContent.value = [""] 
+})
+
+
+const displayInputContent = document.createElement("input")
+displayInput.appendChild(displayInputContent)
+displayInputContent.setAttribute ("id" , "display-input-content")
+
+
+const equalButton = document.querySelector("#equal-to")
+const addButton = document.querySelector("#add")
+const substractButton = document.querySelector("#substract")
+const multiplyButton = document.querySelector("#multiply")
+const divideButton = document.querySelector("#divide")
+
+
 const decimalButton = document.createElement("button");
 numericButtonContainer.appendChild(decimalButton);
 decimalButton.setAttribute('id','decimal-button')
@@ -116,25 +133,84 @@ decimalButton.addEventListener("click", () => {
 })
 
 
-const displayInputContent = document.createElement("input")
-displayInput.appendChild(displayInputContent)
-displayInputContent.setAttribute ("id" , "display-input-content")
+addButton.addEventListener("click", () => {
+
+ if(displayInputContent.value.includes("+")){
+  console.log(equalTo())
+  displayInputContent.value = [""]
+ }
+else 
+  displayInputContent.value += ["+"]
+  
+})
+
+substractButton.addEventListener("click", () => {
+  
+  displayInputContent.value += ["-"]
+  
+})
+
+multiplyButton.addEventListener("click", () => {
+  displayInputContent.value += ["*"]
+  
+})
+
+divideButton.addEventListener("click", () => {
+  displayInputContent.value += ["/"]
+  
+})
 
 
-const clearNumbers = function(){
+equalButton.addEventListener("click", () => {
+ 
+ 
+  console.log(equalTo())
+  
+  return displayInputContent.value = [""] 
 
-}
+})
 
 
 
-const displayNumbers = function() {
+const equalTo = function() {
 
-   let storage = document.getElementById("display-input-content").value;
+  const fullExpression = (displayInputContent.value)
 
-   return storage
+  if (fullExpression.includes("+")) {
 
+    myArray = fullExpression.split("+")
+
+    return console.log(operate(parseInt(myArray[0]),"+",(parseInt(myArray[1])))) 
+
+  }
+  else if (fullExpression.includes("-")) {
+
+    myArray = fullExpression.split("-")
+
+    return console.log(operate(parseInt(myArray[0]),"-",(parseInt(myArray[1]))))
+  }
+  else if (fullExpression.includes("*")) {
+
+    myArray = fullExpression.split("*")
+
+    return console.log(operate(parseInt(myArray[0]),"*",(parseInt(myArray[1]))))
+  }
+  else if (fullExpression.includes("/")) {
+
+    myArray = fullExpression.split("/")
+
+    return console.log(operate(parseInt(myArray[0]),"/",(parseInt(myArray[1]))))
+
+  }
+
+  
+
+  
 }
 
 
 console.log(basicButtons())
+
+
+
 
