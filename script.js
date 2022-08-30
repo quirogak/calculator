@@ -149,9 +149,12 @@ numericButtonContainer.appendChild(decimalButton);
 decimalButton.setAttribute('id','decimal-button')
 decimalButton.textContent = ".";
 decimalButton.addEventListener("click", () => {
-
+  
+  document.querySelector("#decimal-button").disabled = true;
+  
   return displayInputContent.value += ["."];
-})
+  
+   })
 
 //-------------------------------------------------------------------------
 
@@ -162,11 +165,16 @@ equalTo and return the operator we just selected. */
 
 operatorList = ["+","-","*","/"]
 
+function containsNumber(str) {
+  return /\d/.test(str);
+}
+
 
 addButton.addEventListener("click", () => {
 
-  
- if (operatorList.some(elements => displayInputContent.value.includes(elements) )){
+  document.querySelector("#decimal-button").disabled = false;
+
+ if (operatorList.some(elements => displayInputContent.value.includes(elements) ) && containsNumber(displayInputContent.value)){
 
   result.textContent = equalTo()
   displayInputContent.value = [ equalTo() + "+"]
@@ -179,6 +187,8 @@ else
 
 
 substractButton.addEventListener("click", () => {
+
+  document.querySelector("#decimal-button").disabled = false;
 
   if (operatorList.some(elements => displayInputContent.value.includes(elements))){
 
@@ -193,6 +203,8 @@ substractButton.addEventListener("click", () => {
 
 multiplyButton.addEventListener("click", () => {
 
+  document.querySelector("#decimal-button").disabled = false;
+
   if (operatorList.some(elements => displayInputContent.value.includes(elements))){
 
     result.textContent = equalTo()
@@ -204,6 +216,8 @@ multiplyButton.addEventListener("click", () => {
 })
 
 divideButton.addEventListener("click", () => {
+
+  document.querySelector("#decimal-button").disabled = false;
 
   if (operatorList.some(elements => displayInputContent.value.includes(elements))){
 
@@ -218,6 +232,8 @@ divideButton.addEventListener("click", () => {
 
 
 equalButton.addEventListener("click", () => {
+
+  document.querySelector("#decimal-button").disabled = false;
  
  
   result.textContent = equalTo()
