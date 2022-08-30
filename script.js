@@ -127,10 +127,10 @@ const divideButton = document.querySelector("#divide")
 const decimalButton = document.createElement("button");
 numericButtonContainer.appendChild(decimalButton);
 decimalButton.setAttribute('id','decimal-button')
-decimalButton.textContent = ",";
+decimalButton.textContent = ".";
 decimalButton.addEventListener("click", () => {
 
-  return displayInputContent.value += [","];
+  return displayInputContent.value += ["."];
 })
 
 //-------------------------------------------------------------------------
@@ -211,32 +211,36 @@ equalButton.addEventListener("click", () => {
 
 const equalTo = function() {
 
+
+
   const fullExpression = (displayInputContent.value)
+
 
   if (fullExpression.includes("+")) {
 
     myArray = fullExpression.split("+")
+    
 
-    return (operate(parseInt(myArray[0]),"+",(parseInt(myArray[1])))) 
+    return (operate(parseFloat(myArray[0]),"+",(parseFloat(myArray[1])))) 
 
   }
   else if (fullExpression.includes("-")) {
 
     myArray = fullExpression.split("-")
 
-    return (operate(parseInt(myArray[0]),"-",(parseInt(myArray[1]))))
+    return (operate(parseFloat(myArray[0]),"-",(parseFloat(myArray[1]))))
   }
   else if (fullExpression.includes("*")) {
 
     myArray = fullExpression.split("*")
 
-    return (operate(parseInt(myArray[0]),"*",(parseInt(myArray[1]))))
+    return (operate(parseFloat(myArray[0]),"*",(parseFloat(myArray[1]))))
   }
   else if (fullExpression.includes("/")) {
 
     myArray = fullExpression.split("/")
 
-    return (operate(parseInt(myArray[0]),"/",(parseInt(myArray[1]))))
+    return (operate(parseFloat(myArray[0]),"/",(parseFloat(myArray[1]))))
 
   }
 
