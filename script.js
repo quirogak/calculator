@@ -1,6 +1,7 @@
 const numericButtonContainer = document.querySelector("#numeric-button-container")
 const displayInput = document.querySelector("#input-display")
 const result = document.querySelector("#result")
+result.textContent = 0
 
 //-------------------------------------------------------------------------
 //base algorithm
@@ -125,11 +126,10 @@ allClear.setAttribute('id','AC')
 allClear.textContent = "AC";
 allClear.addEventListener("click", () => {
 
-  return displayInputContent.value = ""
+  
+
+  return displayInputContent.value = "" , result.textContent = 0
 })
-
-
-
 
 
 const displayInputContent = document.createElement("input")

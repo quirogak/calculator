@@ -124,9 +124,9 @@ button:active {
 }
 
 #equal-to {
-    height: 324px;
+    height: 328px;
     background-color: rgb(127, 173, 57);
-    margin-bottom: 0px;
+    margin-bottom: 1px;
 }
 
 #equal-to:hover {
