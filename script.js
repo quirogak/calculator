@@ -1,7 +1,8 @@
 const numericButtonContainer = document.querySelector("#numeric-button-container")
 const displayInput = document.querySelector("#input-display")
-
-
+const result = document.querySelector("#result")
+//-------------------------------------------------------------------------
+//base algorithm
 const add = function(x,y){
 
   const result =  x + y;
@@ -64,7 +65,7 @@ else if (operator == "/"){
 }
 
 
-
+//-------------------------------------------------------------------------
 
 
 //buttons section
@@ -132,6 +133,8 @@ decimalButton.addEventListener("click", () => {
   return displayInputContent.value += [","];
 })
 
+//-------------------------------------------------------------------------
+
 
 /* We are checking if there is already a operator inside of displayInputContent, if there is any, we run the function
 equalTo and return the operator we just selected. */
@@ -146,6 +149,7 @@ addButton.addEventListener("click", () => {
   
  if (operatorList.some(elements => displayInputContent.value.includes(elements))){
 
+  result.textContent = equalTo()
   displayInputContent.value = [ equalTo() + "+"]
  }
 else 
@@ -158,7 +162,9 @@ substractButton.addEventListener("click", () => {
 
   if (operatorList.some(elements => displayInputContent.value.includes(elements))){
 
+    result.textContent = equalTo()
    displayInputContent.value = [ equalTo() + "-"]
+   
   }
  else 
    displayInputContent.value += ["-"]
@@ -169,7 +175,9 @@ multiplyButton.addEventListener("click", () => {
 
   if (operatorList.some(elements => displayInputContent.value.includes(elements))){
 
+    result.textContent = equalTo()
     displayInputContent.value = [ equalTo() + "*"]
+  
    }
   else 
     displayInputContent.value += ["*"]
@@ -178,7 +186,10 @@ multiplyButton.addEventListener("click", () => {
 divideButton.addEventListener("click", () => {
 
   if (operatorList.some(elements => displayInputContent.value.includes(elements))){
+
+    result.textContent = equalTo()
     displayInputContent.value = [ equalTo() + "/"]
+    
    }
   else 
     displayInputContent.value += ["/"]
@@ -189,14 +200,14 @@ divideButton.addEventListener("click", () => {
 equalButton.addEventListener("click", () => {
  
  
-  console.log(equalTo())
+  result.textContent = equalTo()
   
   return displayInputContent.value = [""] 
 
 })
 
 
-
+//-------------------------------------------------------------------------
 
 const equalTo = function() {
 
@@ -230,9 +241,9 @@ const equalTo = function() {
   }
 
   
-
-  
 }
+
+
 
 
 console.log(basicButtons())
