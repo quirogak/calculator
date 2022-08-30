@@ -250,7 +250,7 @@ const equalTo = function() {
 
 
 
-console.log(basicButtons())
+
 
 
 
