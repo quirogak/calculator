@@ -133,30 +133,55 @@ decimalButton.addEventListener("click", () => {
 })
 
 
+/* We are checking if there is already a operator inside of displayInputContent, if there is any, we run the function
+equalTo and return the operator we just selected. */
+
+
+operatorList = ["+","-","*","/"]
+
+
+
 addButton.addEventListener("click", () => {
 
- if(displayInputContent.value.includes("+")){
-  console.log(equalTo())
-  displayInputContent.value = [""]
+  
+ if (operatorList.some(elements => displayInputContent.value.includes(elements))){
+
+  displayInputContent.value = [ equalTo() + "+"]
  }
 else 
   displayInputContent.value += ["+"]
   
 })
 
+
 substractButton.addEventListener("click", () => {
-  
-  displayInputContent.value += ["-"]
-  
-})
+
+  if (operatorList.some(elements => displayInputContent.value.includes(elements))){
+
+   displayInputContent.value = [ equalTo() + "-"]
+  }
+ else 
+   displayInputContent.value += ["-"]
+   
+ })
 
 multiplyButton.addEventListener("click", () => {
-  displayInputContent.value += ["*"]
-  
+
+  if (operatorList.some(elements => displayInputContent.value.includes(elements))){
+
+    displayInputContent.value = [ equalTo() + "*"]
+   }
+  else 
+    displayInputContent.value += ["*"]
 })
 
 divideButton.addEventListener("click", () => {
-  displayInputContent.value += ["/"]
+
+  if (operatorList.some(elements => displayInputContent.value.includes(elements))){
+    displayInputContent.value = [ equalTo() + "/"]
+   }
+  else 
+    displayInputContent.value += ["/"]
   
 })
 
@@ -172,6 +197,7 @@ equalButton.addEventListener("click", () => {
 
 
 
+
 const equalTo = function() {
 
   const fullExpression = (displayInputContent.value)
@@ -180,26 +206,26 @@ const equalTo = function() {
 
     myArray = fullExpression.split("+")
 
-    return console.log(operate(parseInt(myArray[0]),"+",(parseInt(myArray[1])))) 
+    return (operate(parseInt(myArray[0]),"+",(parseInt(myArray[1])))) 
 
   }
   else if (fullExpression.includes("-")) {
 
     myArray = fullExpression.split("-")
 
-    return console.log(operate(parseInt(myArray[0]),"-",(parseInt(myArray[1]))))
+    return (operate(parseInt(myArray[0]),"-",(parseInt(myArray[1]))))
   }
   else if (fullExpression.includes("*")) {
 
     myArray = fullExpression.split("*")
 
-    return console.log(operate(parseInt(myArray[0]),"*",(parseInt(myArray[1]))))
+    return (operate(parseInt(myArray[0]),"*",(parseInt(myArray[1]))))
   }
   else if (fullExpression.includes("/")) {
 
     myArray = fullExpression.split("/")
 
-    return console.log(operate(parseInt(myArray[0]),"/",(parseInt(myArray[1]))))
+    return (operate(parseInt(myArray[0]),"/",(parseInt(myArray[1]))))
 
   }
 
@@ -210,6 +236,7 @@ const equalTo = function() {
 
 
 console.log(basicButtons())
+
 
 
 
