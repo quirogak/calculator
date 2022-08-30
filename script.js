@@ -163,11 +163,10 @@ equalTo and return the operator we just selected. */
 operatorList = ["+","-","*","/"]
 
 
-
 addButton.addEventListener("click", () => {
 
   
- if (operatorList.some(elements => displayInputContent.value.includes(elements))){
+ if (operatorList.some(elements => displayInputContent.value.includes(elements) )){
 
   result.textContent = equalTo()
   displayInputContent.value = [ equalTo() + "+"]
@@ -237,6 +236,7 @@ const equalTo = function() {
   const fullExpression = (displayInputContent.value)
 
 
+
   if (fullExpression.includes("+")) {
 
     myArray = fullExpression.split("+")
@@ -264,6 +264,11 @@ const equalTo = function() {
     return (operate(parseFloat(myArray[0]),"/",(parseFloat(myArray[1]))))
 
   }
+
+  else if ((operatorList.some(elements => fullExpression.includes(elements) === false))){
+    return displayInputContent.value
+  }
+
 
   
 }
