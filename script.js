@@ -1,6 +1,7 @@
 const numericButtonContainer = document.querySelector("#numeric-button-container")
 const displayInput = document.querySelector("#input-display")
 const result = document.querySelector("#result")
+
 //-------------------------------------------------------------------------
 //base algorithm
 const add = function(x,y){
@@ -102,14 +103,33 @@ const basicButtons = function(){
   }
 }
 
+
+
+
+
 const removeButton = document.createElement("button");
 numericButtonContainer.appendChild(removeButton);
 removeButton.setAttribute('id','remove-button')
 removeButton.textContent = "⌫";
 removeButton.addEventListener("click", () => {
+
+currentValue = displayInputContent.value.substring(0, displayInputContent.value.length-1)
+
       
- return displayInputContent.value = [""] 
+ return displayInputContent.value = currentValue
 })
+
+const allClear = document.createElement("button");
+numericButtonContainer.appendChild(allClear);
+allClear.setAttribute('id','AC')
+allClear.textContent = "AC";
+allClear.addEventListener("click", () => {
+
+  return displayInputContent.value = ""
+})
+
+
+
 
 
 const displayInputContent = document.createElement("input")
