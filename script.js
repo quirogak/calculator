@@ -172,6 +172,7 @@ addButton.addEventListener("click", () => {
   result.textContent = equalTo()
   displayInputContent.value = [ equalTo() + "+"]
  }
+
 else 
   displayInputContent.value += ["+"]
   
@@ -222,7 +223,7 @@ equalButton.addEventListener("click", () => {
  
   result.textContent = equalTo()
   
-  return displayInputContent.value = [""] 
+  return displayInputContent.value = equalTo()
 
 })
 
@@ -266,6 +267,7 @@ const equalTo = function() {
 
   
 }
+
 
 
 
