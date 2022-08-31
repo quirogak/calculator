@@ -30,7 +30,7 @@ const divide = function(x,y){
 
     if (x == 0 || y == 0){
 
-      const result = console.log("Error! can't divide by 0")
+      const result = "Error!"
 
       return result
     }
