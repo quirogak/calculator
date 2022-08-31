@@ -163,7 +163,7 @@ decimalButton.addEventListener("click", () => {
 equalTo and return the operator we just selected. */
 
 
-operatorList = ["+","-","*","/"]
+operatorList = ["+"&&"-"&&"*"&&"/"]
 
 function containsNumber(str) {
   return /\d/.test(str);
@@ -174,7 +174,7 @@ addButton.addEventListener("click", () => {
 
   document.querySelector("#decimal-button").disabled = false;
 
- if (operatorList.some(elements => displayInputContent.value.includes(elements) ) && containsNumber(displayInputContent.value)){
+ if (operatorList.some(elements => displayInputContent.value.includes(elements) ) ){
 
   result.textContent = equalTo()
   displayInputContent.value = [ equalTo() + "+"]
@@ -248,11 +248,9 @@ equalButton.addEventListener("click", () => {
 const equalTo = function() {
 
 
-
   const fullExpression = (displayInputContent.value)
 
-
-
+ 
   if (fullExpression.includes("+")) {
 
     myArray = fullExpression.split("+")
@@ -261,31 +259,42 @@ const equalTo = function() {
     return (operate(parseFloat(myArray[0]),"+",(parseFloat(myArray[1])))) 
 
   }
-  else if (fullExpression.includes("-")) {
-
-    myArray = fullExpression.split("-")
-
-    return (operate(parseFloat(myArray[0]),"-",(parseFloat(myArray[1]))))
-  }
-  else if (fullExpression.includes("*")) {
+  if (fullExpression.includes("*")){
 
     myArray = fullExpression.split("*")
 
+
     return (operate(parseFloat(myArray[0]),"*",(parseFloat(myArray[1]))))
   }
-  else if (fullExpression.includes("/")) {
+
+  if (fullExpression.includes("/")){
 
     myArray = fullExpression.split("/")
 
-    return (operate(parseFloat(myArray[0]),"/",(parseFloat(myArray[1]))))
 
+    return (operate(parseFloat(myArray[0]),"/",(parseFloat(myArray[1]))))
   }
+
+  if (fullExpression.includes("-")){
+
+    myArray = fullExpression.split("-")
+    
+
+    if((myArray.includes(""))){
+
+      return (operate(parseFloat(myArray[1]),"-",(parseFloat(myArray[2]))))
+    }
+
+    else return (operate(parseFloat(myArray[0]),"-",(parseFloat(myArray[1]))))
+  }
+
+ 
 
   else if ((operatorList.some(elements => fullExpression.includes(elements) === false))){
     return displayInputContent.value
   }
 
-
+ 
   
 }
 
